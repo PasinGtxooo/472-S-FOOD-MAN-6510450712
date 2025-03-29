@@ -31,12 +31,9 @@ jobs:
 
       - name: Set environment variables from secrets
         run: |
-          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> $GITHUB_ENV
           echo "STRIPE_TEST_KEY=${{ secrets.STRIPE_TEST_KEY }}" >> $GITHUB_ENV
           echo "SPRING_MAIL_USERNAME=${{ secrets.SPRING_MAIL_USERNAME }}" >> $GITHUB_ENV
           echo "SPRING_MAIL_PASSWORD=${{ secrets.SPRING_MAIL_PASSWORD }}" >> $GITHUB_ENV
-          echo "DATABASE_URL=${{ secrets.DEV_DATABASE_URL }}" >> $GITHUB_ENV
-
       - name: Run Unit Tests (JUnit)
         run: |
           cd restaurant
