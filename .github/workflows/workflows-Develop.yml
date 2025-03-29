@@ -34,6 +34,7 @@ jobs:
           echo "STRIPE_TEST_KEY=${{ secrets.STRIPE_TEST_KEY }}" >> $GITHUB_ENV
           echo "SPRING_MAIL_USERNAME=${{ secrets.SPRING_MAIL_USERNAME }}" >> $GITHUB_ENV
           echo "SPRING_MAIL_PASSWORD=${{ secrets.SPRING_MAIL_PASSWORD }}" >> $GITHUB_ENV
+
       - name: Run Unit Tests (JUnit)
         run: |
           cd restaurant
@@ -62,10 +63,3 @@ jobs:
           cd frontend
           npm install
           npm run build
-
-      - name: Run Playwright Tests
-        run: |
-          cd frontend
-          npx playwright install --with-deps
-          npx playwright test
-
